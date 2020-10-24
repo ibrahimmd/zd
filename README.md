@@ -6,7 +6,7 @@ test app
 
 - Clone project
 ```
-git clone https://github.com/ibrahim/zd.git
+git clone https://github.com/ibrahimmd/zd.git
 ```
 
 - Switch directory
@@ -16,7 +16,7 @@ cd zd
 
 - Build docker image
 ```
-make docker-image
+make docker-build
 ```
 
 - Start docker containers using `docker-compose`
