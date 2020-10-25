@@ -42,18 +42,18 @@ app.get('/get', function (req, res) {
         User.findOne({ where: { username: req.query.username } })
             .then(user => { 
                 if(_.isObject(user)) {
-                    res.render('data', { name: user.name, lastname: user.lastname });
+                    res.status(200).render('data', { name: user.name, lastname: user.lastname });
                 }                
                 else if(_.isNull(user)) {
-                    res.render('error', { error_message: `User not found`});
+                    res.status(200).render('error', { error_message: `User not found`});
                 }
-                else {
-                    res.render('error', { error_message: `User not found`});
+                else {                    
+                    res.status(200).render('error', { error_message: `User not found`});
                 }                
             })
             .catch(err => {
                 console.log("error:"+err)
-                res.render('error', { error_message: `error getting data`});
+                res.status(400).render('error', { error_message: `error getting data`});
             })
         //res.render('get', { message: 'not empty'});
     }
@@ -63,19 +63,19 @@ app.get('/get', function (req, res) {
 app.get('/set', function (req, res) {    
     // FIXME: no sanity checks performed on input
     if(_.isEmpty(req.query.username) || _.isEmpty(req.query.name) || _.isEmpty(req.query.lastname)) {
-        res.render('error', { error_message: 'username, name, or lastname not set'});
+        res.status(400).render('error', { error_message: 'username, name, or lastname not set'});
     }else {
         User.create({username: req.query.username, name: req.query.name, lastname: req.query.lastname})
             .then(user => {
                 if(_.isObject(user)) {                    
-                    res.render('info', { info_message: `user ${user.username} saved`});
+                    res.status(200).render('info', { info_message: `user ${user.username} saved`});
                 } 
                 else {
-                    res.render('error', { error_message: `user ${req.query.username} not saved`});
+                    res.status(400).render('error', { error_message: `user ${req.query.username} not saved`});
                 }                
             })
             .catch(err => {                
-                res.render('error', { error_message: `user ${req.query.username} not saved`});
+                res.status(400).render('error', { error_message: `user ${req.query.username} not saved`});
             })        
     }
     

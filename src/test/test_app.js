@@ -14,6 +14,7 @@ describe('demo app test', () => {
   
     it('home page content', function(done) {
         request('http://localhost:3000/' , function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
             expect(body).has.string('home');
             done();
         });
@@ -21,6 +22,7 @@ describe('demo app test', () => {
 
     it('set', function(done) {
         request('http://localhost:3000/set?username=mochatest&name=mocha&lastname=test' , function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
             expect(body).has.string('mochatest');
             done();
         });
@@ -28,6 +30,7 @@ describe('demo app test', () => {
     
     it('get unknown user', function(done) {
         request('http://localhost:3000/get?username=notfound' , function(error, response, body) {
+            expect(response.statusCode).to.equal(200);
             expect(body).has.string('User not found');
             done();
         });
@@ -35,6 +38,7 @@ describe('demo app test', () => {
 
     it('get mochatest user', function(done) {
         request('http://localhost:3000/get?username=mochatest' , function(error, response, body) {
+            expect(response.statusCode).to.equal(200);    
             expect(body).has.string('mocha test');
             done();
         });
