@@ -3,6 +3,10 @@
 test app
 
 ## Deploy
+ 3 docker containers will be deployed
+ - mysql, listening on port 3306
+ - nginx, listening on port 8080 and proxies requests to app
+ - app, node + express, listening on port 3000
 
 - Clone project
 ```
