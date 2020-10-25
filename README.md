@@ -52,6 +52,11 @@ curl -sv 'http://localhost:8080/get?username=johnd'
 ## Unit testing
  For unit testing, `docker-compose.test.yml` is used to startup only the mysql db and node is started up on local node. nginx is not used.
 
+- Switch directory
+```
+cd zd
+```
+
  - Clear temporary docker data
  ```
 sudo rm -rf docker-data
@@ -59,17 +64,17 @@ sudo rm -rf docker-data
 
  - Start db on terminal 1
  ```
-cd zd ; docker-compose -f docker-compose.test.yml up
+docker-compose -f docker-compose.test.yml up
  ```
 
  - Start node on terminal 2
  ```
-cd zd/src ; npm install; npm run teststart
+cd src ; npm install; npm run teststart
  ```
 
  - Start test on terminal 3
  ```
-cd zd/src; npm test
+cd src; npm test
  ```
 
 - Stop db
