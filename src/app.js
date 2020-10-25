@@ -66,15 +66,10 @@ app.get('/set', function (req, res) {
         res.status(400).render('error', { error_message: 'username, name, or lastname not set'});
     }else {
         User.create({username: req.query.username, name: req.query.name, lastname: req.query.lastname})
-            .then(user => {
-                if(_.isObject(user)) {                    
-                    res.status(200).render('info', { info_message: `user ${user.username} saved`});
-                } 
-                else {
-                    res.status(400).render('error', { error_message: `user ${req.query.username} not saved`});
-                }                
+            .then(user => {                
+                res.status(200).render('info', { info_message: `user ${user.username} saved`});                                   
             })
-            .catch(err => {                
+            .catch(err => {                                
                 res.status(400).render('error', { error_message: `user ${req.query.username} not saved`});
             })        
     }

@@ -5,12 +5,16 @@ var User = require('../models/User');
 
 
 describe('demo app test', () => {
-    before((done) => { //Before each test, empty the database
+    // cleanup db before test
+    before((done) => { 
         User.destroy({
             where: {},
             truncate: true
-          }, done())
+          }).then(() => {
+                  done();
+          });
     });
+
   
     it('home page content', function(done) {
         request('http://localhost:3000/' , function(error, response, body) {
