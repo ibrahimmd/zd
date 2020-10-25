@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test mocha --reporter spec",
+    "teststart": "NODE_ENV=test node app.js",
     "start": "node app.js"
   },
   "author": "",
@@ -16,5 +17,10 @@
     "lodash": "^4.17.20",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0",
+    "request": "^2.88.2"
   }
 }

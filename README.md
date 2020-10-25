@@ -45,8 +45,36 @@ curl -sv 'http://localhost:8080/set?username=johnd&name=john&lastname=doe'
 curl -sv 'http://localhost:8080/get?username=johnd'
 ```
 
+## Unit testing
+ For unit testing, `docker-compose.test.yml` is used to startup only the mysql db and node is started up on local node. nginx is not used.
+
+ - Clear temporary docker data
+ ```
+sudo rm -rf docker-data
+ ```
+
+ - Start db
+ ```
+docker-compose -f docker-compose.test.yml up
+ ```
+
+ - Start node
+ ```
+cd src ; npm run teststart
+ ```
+
+ - Start test
+ ```
+cd src; npm test
+ ```
+
+- Stop db
+ ```
+docker-compose -f docker-compose.test.yml down
+ ```
+
 ## TODO
 
 - Use Ansible for config management
 - Use certbot for SSL certs (valid domain name required)
-- Unit testing
+
