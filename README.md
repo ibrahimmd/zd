@@ -73,6 +73,15 @@ cd src; npm test
 docker-compose -f docker-compose.test.yml down
  ```
 
+
+## Create self signed cert for nginx
+
+- create self signed cert for `localhost.internal`
+```
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -subj '/CN=localhost.internal'
+```
+
+
 ## TODO
 
 - Use Ansible for config management
