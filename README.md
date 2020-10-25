@@ -60,7 +60,7 @@ docker-compose -f docker-compose.test.yml up
 
  - Start node
  ```
-cd src ; npm run teststart
+cd src ; npm install; npm run teststart
  ```
 
  - Start test
