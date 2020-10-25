@@ -57,19 +57,19 @@ curl -sv 'http://localhost:8080/get?username=johnd'
 sudo rm -rf docker-data
  ```
 
- - Start db
+ - Start db on terminal 1
  ```
-docker-compose -f docker-compose.test.yml up
- ```
-
- - Start node
- ```
-cd src ; npm install; npm run teststart
+cd zd ; docker-compose -f docker-compose.test.yml up
  ```
 
- - Start test
+ - Start node on terminal 2
  ```
-cd src; npm test
+cd zd/src ; npm install; npm run teststart
+ ```
+
+ - Start test on terminal 3
+ ```
+cd zd/src; npm test
  ```
 
 - Stop db
