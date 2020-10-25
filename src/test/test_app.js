@@ -44,38 +44,3 @@ describe('demo app test', () => {
 
 });
 
-
-
-//     describe('empty db', () => {
-//         before((done) => { 
-//             db.User.destroy({
-//                 where: {},
-//                 truncate: true
-//               })
-//           done;         
-//         });    
-//     });
-    
-
-// it('home page content', function(done) {
-//     request('http://localhost:3000/' , function(error, response, body) {
-//         expect(body).has.string('home');
-//         done();
-//     });
-// });
-
-
-// it('set', function(done) {
-//     request('http://localhost:3000/set?username=mochatest&name=mocha&lastname=test' , function(error, response, body) {
-//         expect(body).has.string('mocha test');
-//         done();
-//     });
-// });
-
-// it('get', function(done) {
-//     request('http://localhost:3000/set?username=mochatest&name=mocha&lastname=test' , function(error, response, body) {
-//         expect(body).has.string('mocha test');
-//         done();
-//     });
-// });
-
